@@ -48,11 +48,16 @@ public class PostServiceImpl implements PostService {
         return null;
     }
 
+        /**
+     * Find one post
+     *
+     * @param title of the post 
+     * @return the post
+     */
     @Override
     public Post findByTitle(String title) {
-        // TODO Auto-generated method stub
-      
-        return null;
+        System.out.println("Find one post : " + title);
+        return PostRepository.findByTitle(title);
     }
 
     @Override
