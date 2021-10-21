@@ -15,6 +15,6 @@ import org.springframework.stereotype.Repository;
  * @author Group3
  */
 @Repository
-interface PostRepository extends CrudRepository<Post,Long> {
+public interface PostRepository extends CrudRepository<Post,Long> {
 
 }
