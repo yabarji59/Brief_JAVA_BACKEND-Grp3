@@ -1,3 +1,7 @@
+package com.backend.backend.repository;
+
+import com.backend.backend.model.Post;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +15,6 @@ import org.springframework.stereotype.Repository;
  * @author Group3
  */
 @Repository
-interface PostRepository extends CrudRepository<Post,Integer> {
+interface PostRepository extends CrudRepository<Post,Long> {
 
 }
