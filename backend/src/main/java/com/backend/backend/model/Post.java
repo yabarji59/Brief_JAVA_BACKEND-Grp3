@@ -25,6 +25,10 @@ public class Post {
         private String tags;
     
         private Boolean published;
+
+        public Post() {
+        }
+
         public Long getId() {
             return this.id;
         }
