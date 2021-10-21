@@ -16,15 +16,9 @@ public class PostServiceImpl implements PostService {
     @Autowired
 	private PostRepository PostRepository;
 
+   
     @Override
     public List<Post> list() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public List<Post> findAll() {
-        // TODO Auto-generated method stub
         List<Post> liste = new ArrayList<Post>();
         PostRepository.findAll().forEach(liste::add);
         return liste;
@@ -48,7 +42,7 @@ public class PostServiceImpl implements PostService {
         return null;
     }
 
-        /**
+     /**
      * Find one post
      *
      * @param title of the post 
@@ -64,7 +58,9 @@ public class PostServiceImpl implements PostService {
     public Post publishUnpublish(Long id, Post post) {
         // TODO Auto-generated method stub
         return null;
-    } 
+    }
+
+    
 	
 
 

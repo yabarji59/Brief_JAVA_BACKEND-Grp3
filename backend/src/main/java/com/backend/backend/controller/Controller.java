@@ -23,14 +23,20 @@ import com.backend.backend.services.PostService;
     // injeter interface
   @Autowired
     private PostService postService;
-}
+
   
 @GetMapping ("")
   public List <Post> list(){
     return postService.list();
   }
+<<<<<<< HEAD
 
 
+=======
+}
+
+/*
+>>>>>>> Feat_Caroline
   @GetMapping (path= "/{id}")
     public Post get (@PathVariable("id") Long id){
       Post result = postService.get(id);
@@ -67,4 +73,8 @@ import com.backend.backend.services.PostService;
     }
     
 
+<<<<<<< HEAD
 
+=======
+*/
+>>>>>>> Feat_Caroline
