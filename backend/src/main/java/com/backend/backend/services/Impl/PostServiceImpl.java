@@ -1,5 +1,6 @@
 package com.backend.backend.services.Impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.backend.backend.repository.PostRepository;
 import com.backend.backend.services.PostService;
@@ -22,9 +23,11 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Iterable<Post> findAll() {
+    public List<Post> findAll() {
         // TODO Auto-generated method stub
-        return null;
+        List<Post> liste = new ArrayList<Post>();
+        PostRepository.findAll().forEach(liste::add);
+        return liste;
     }
 
     @Override
@@ -45,10 +48,16 @@ public class PostServiceImpl implements PostService {
         return null;
     }
 
+        /**
+     * Find one post
+     *
+     * @param title of the post 
+     * @return the post
+     */
     @Override
     public Post findByTitle(String title) {
-        // TODO Auto-generated method stub
-        return null;
+        System.out.println("Find one post : " + title);
+        return PostRepository.findByTitle(title);
     }
 
     @Override
