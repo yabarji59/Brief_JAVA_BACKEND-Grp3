@@ -8,8 +8,7 @@ public interface PostService {
 
     public List<Post> list();
     //list () doit etre définit dans la classe message (controller?)/ getter 
-    //list() est définit dans le front 
-    public Iterable<Post> findAll();
+    //list() est définit dans le front (équivaut à findall())
 
     public void delete(Long id);// ou long
 
