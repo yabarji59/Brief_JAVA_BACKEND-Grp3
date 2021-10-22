@@ -41,7 +41,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public String createNewPost(Post post) {
-        // TODO Auto-generated method stub
+        return PostRepository.save(post).getId();
         return null;
     }
 
