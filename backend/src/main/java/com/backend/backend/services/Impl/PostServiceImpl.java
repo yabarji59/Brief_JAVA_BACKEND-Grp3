@@ -67,10 +67,12 @@ public class PostServiceImpl implements PostService {
         return PostRepository.findByTitle(title);
     }
 
+    // publishUnpublish one post idem Update but to modify front 
     @Override
     public Post publishUnpublish(Long id, Post post) {
-       
-        return null;
+        System.out.println("update one post : " + post);
+        post.setId(id);
+        return PostRepository.save(post);
     }
 
     
