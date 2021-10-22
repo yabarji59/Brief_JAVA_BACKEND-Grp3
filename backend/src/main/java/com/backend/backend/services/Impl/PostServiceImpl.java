@@ -24,21 +24,31 @@ public class PostServiceImpl implements PostService {
         return liste;
     }
 
+   /**
+     * Delete one post
+     *
+     */
     @Override
     public void delete(Long id) {
-        // TODO Auto-generated method stub
+        System.out.println("Delete one post : " + id);
+        PostRepository.deleteById(id);
         
     }
 
     @Override
     public Post update(Long id, Post post) {
-        // TODO Auto-generated method stub
+        post.setId(id);
+		PostRepository.save(post);
         return null;
     }
 
+ /**
+     * Update one post
+     *
+     */
     @Override
     public Long createNewPost(Post post) {
-        // TODO Auto-generated method stub
+        
         return null;
     }
 
@@ -56,7 +66,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Post publishUnpublish(Long id, Post post) {
-        // TODO Auto-generated method stub
+       
         return null;
     }
 
