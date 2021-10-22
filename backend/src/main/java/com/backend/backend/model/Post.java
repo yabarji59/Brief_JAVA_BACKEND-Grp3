@@ -7,16 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * @entity permet d'indiquer que la classe correspond à une table de la BDD
- * @table indique le nom de la table associée
- * @id @generatedValue permet d'auto incrémenter l'id 
- * @column permet de faire le lien avec le nom du champ de la table 
- * constructeur Post vide , suivie des méthodes getter et setter 
- * {@ link com.backend.backend.model.Post} object from the Model package.
- * 
- * @author Group3
- */
+
 @Entity
 @Table(name = "post")
 public class Post {
