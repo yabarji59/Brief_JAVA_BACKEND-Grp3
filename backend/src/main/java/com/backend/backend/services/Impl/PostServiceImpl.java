@@ -27,6 +27,8 @@ public class PostServiceImpl implements PostService {
    /**
      * Delete one post
      *
+     * @param Delete of the post 
+     * @return the post
      */
     @Override
     public void delete(Long id) {
@@ -36,6 +38,12 @@ public class PostServiceImpl implements PostService {
         
     }
 
+ /**
+     * Update one post
+     * 
+     *@param update of the post 
+     * @return the post
+     */
     @Override
     public Post update(Long id, Post post) {
         //TODO remove.production
