@@ -14,7 +14,7 @@ public interface PostService {
 
     public Post update(Long id, Post post);
 
-    public String createNewPost(Post post);
+    public Long createNewPost(Post post);
 
     public Post findByTitle(String title);
 
