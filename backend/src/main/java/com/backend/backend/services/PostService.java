@@ -13,7 +13,7 @@ public interface PostService {
 
     public void delete(Long id);// ou long
 
-    public Post update(Post post);
+    public void update(Post post);
 
     public Long createNewPost(Post post);
 
