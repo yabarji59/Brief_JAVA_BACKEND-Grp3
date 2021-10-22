@@ -49,11 +49,12 @@ public class PostServiceImpl implements PostService {
      * @return the post
      */
     @Override
-    public Post update(Post post) {
+    public void update(Post post) {
 
         //TODO remove.production
-        System.out.println("update one post : " + post);      
-        return postRepository.save(post);
+        System.out.println("update one post : " + post.getTitle());      
+        if (validateForm(post))  { postRepository.save(post);}
+        throw new InsertionException("invalide object");
 
     }
 
