@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
+import com.backend.backend.exceptions.ResourceNotFoundException;
 import com.backend.backend.model.Post;
 import com.backend.backend.services.PostService;
 
@@ -39,7 +40,7 @@ import com.backend.backend.services.PostService;
     public Post get (@PathVariable("id") Long id){
       Post result = postService.get(id);
       if (result == null){
-        throw new NoSuchObjectException();
+        throw new ResourceNotFoundException();
       }
     return result;
   }

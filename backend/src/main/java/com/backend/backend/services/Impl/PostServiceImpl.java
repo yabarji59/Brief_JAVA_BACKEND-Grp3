@@ -8,6 +8,7 @@ import com.backend.backend.model.Post;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.backend.backend.exceptions.InsertionException;
 
 
 @Service
@@ -55,12 +56,17 @@ public class PostServiceImpl implements PostService {
 
     public Long createNewPost(Post post) {
 
-        
+        if (validateForm(post))  {
         System.out.println(" la méthode createNewPost est passée"); 
         // TO DO remove after test
         return PostRepository.save(post).getId();
-
+        }
+    
+        throw new InsertionException("invalide object");
     }
+
+
+    
 
      /**
      * Find one post
@@ -81,7 +87,18 @@ public class PostServiceImpl implements PostService {
         return null;
     }
 
-    
+   private boolean  validateForm(Post post) {
+
+        if (post.getId() == null 
+        || post.getTitle() == null
+        || post.getTags() == null
+        || post.getContent() == null
+        || post == null) {
+            return false;
+        }
+        return true;
+
+   } 
 	
 
 
