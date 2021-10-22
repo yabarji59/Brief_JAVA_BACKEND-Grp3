@@ -90,8 +90,8 @@ public class Controller {
   @PutMapping("/{id}")
   @CrossOrigin(origins = "http://localhost:4200")
   @ResponseStatus(code=HttpStatus.OK)
-  public void update(@PathVariable("id") Long id, @RequestBody Post post) {
-    postService.update(post);   
+  public Post update(@PathVariable("id") Long id, @RequestBody Post post) {
+    return postService.update(post);   
   }
 
   @PutMapping("/{id}/publish")
