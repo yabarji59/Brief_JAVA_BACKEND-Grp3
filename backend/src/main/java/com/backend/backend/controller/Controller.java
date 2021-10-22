@@ -14,8 +14,8 @@ import java.util.List;
 import com.backend.backend.model.Post;
 import com.backend.backend.services.PostService;
 
-// // @RestController indique à Spring que cette classe est un bean & 
-// insérer le retour de la méthode dans le corps de la réponse HTTP
+// @RestController tells Spring that this class is a bean &
+// insert the return of the method in the body response of the HTTP API REST 
 
 @RestController 
 
@@ -23,16 +23,18 @@ import com.backend.backend.services.PostService;
   public class Controller {
 
     
-    // injeter interface
+    // inject interface
   @Autowired
     private PostService postService;
 
-  
+
+  // list post 
 @GetMapping ("")
   public List <Post> list(){
     return postService.list();
   }
 
+// post for id 
   @GetMapping (path= "/{id}")
     public Post get (@PathVariable("id") Long id){
       Post result = postService.get(id);
@@ -42,6 +44,7 @@ import com.backend.backend.services.PostService;
     return result;
   }
 
+// DeletePost for id 
 @DeleteMapping(path= "/{id}")
   public Post delete (@PathVariable("id") Long id){
     Post result = postService.delete(id);
@@ -49,24 +52,24 @@ import com.backend.backend.services.PostService;
 
   }
 
-
+// findByTitle
   @GetMapping(path= "/posts?title={title}")
-    public Post get (@PathVariable("title") String title){
+    public Post findByTitle (@PathVariable("title") String title){
       Post result = postService.findByTitle(title);
       return result;
     }
 
+// createNewPost
     @PostMapping("")
-      public Long create (@RequestBody Post post){
+      public Long createNewPost (@RequestBody Post post){
         Long result = postService.createNewPost(post);
         return result;
       }
-
-    @PutMapping(path= "/{id}")
-    public Post put (@PathVariable("id") Long id){
-      Post result = postService.put(id);
+//updatePost
+    @PutMapping("")
+    public Post update (@RequestBody Post post){
+      Post result = postService.update(post);
       return result;
     }
     
-
 }
