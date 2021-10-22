@@ -37,7 +37,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public String createNewPost(Post post) {
+    public Long createNewPost(Post post) {
         // TODO Auto-generated method stub
         return null;
     }
