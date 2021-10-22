@@ -2,6 +2,8 @@ package com.backend.backend.services.Impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import com.backend.backend.repository.PostRepository;
 import com.backend.backend.services.PostService;
 import com.backend.backend.model.Post;
@@ -15,28 +17,28 @@ import com.backend.backend.exceptions.InsertionException;
 public class PostServiceImpl implements PostService {
     
     @Autowired
-	private PostRepository PostRepository;
+	private PostRepository postRepository;
 
-   
+
+
     @Override
     public List<Post> list() {
         List<Post> liste = new ArrayList<Post>();
-        PostRepository.findAll().forEach(liste::add);
+        postRepository.findAll().forEach(liste::add);
         return liste;
     }
 
    /**
      * Delete one post
      *
-     * @param Delete of the post 
+     * @param id the Id of the post that we want to delete
      * @return the post
      */
     @Override
     public void delete(Long id) {
-
         //TODO remove.production
         System.out.println("Delete one post : " + id);
-        PostRepository.deleteById(id);
+        postRepository.deleteById(id);
 
     }
 
@@ -47,12 +49,11 @@ public class PostServiceImpl implements PostService {
      * @return the post
      */
     @Override
-    public Post update(Long id, Post post) {
+    public Post update(Post post) {
 
         //TODO remove.production
-        System.out.println("update one post : " + post);
-        post.setId(id);
-        return PostRepository.save(post);
+        System.out.println("update one post : " + post);      
+        return postRepository.save(post);
 
     }
 
@@ -61,20 +62,17 @@ public class PostServiceImpl implements PostService {
      *
      */
     @Override
-
     public Long createNewPost(Post post) {
-
+        System.out.println(post.toString()); 
         if (validateForm(post))  {
         System.out.println(" la méthode createNewPost est passée"); 
         // TO DO remove after test
-        return PostRepository.save(post).getId();
+        return postRepository.save(post).getId();
         }
     
         throw new InsertionException("invalide object");
     }
-
-
-    
+  
 
      /**
      * Find one post
@@ -86,31 +84,26 @@ public class PostServiceImpl implements PostService {
     public Post findByTitle(String title) {
         //TODO remove.production
         System.out.println("Find one post : " + title);
-        return PostRepository.findByTitle(title);
+        return postRepository.findByTitle(title);
     }
 
-    // publishUnpublish one post idem Update but to modify front 
-    @Override
-    public Post publishUnpublish(Long id, Post post) {
-
-        System.out.println("update one post : " + post);
-        post.setId(id);
-        return PostRepository.save(post);
-
-    }
-
+   
    private boolean  validateForm(Post post) {
-
-        if (post.getId() == null 
-        || post.getTitle() == null
+        if ( post == null
+        || post.getTitle() == null || post.getTitle().trim().isEmpty()
         || post.getTags() == null
         || post.getContent() == null
-        || post == null) {
+        ) {
             return false;
         }
         return true;
 
-   } 
+   }
+
+@Override
+public Post get(Long id) {
+    return postRepository.findById(id).get();   
+} 
 	
 
 

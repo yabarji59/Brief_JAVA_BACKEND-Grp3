@@ -23,6 +23,7 @@ public class Post {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name="id")
         private Long id;
     
         @Column(name="title")
@@ -31,17 +32,29 @@ public class Post {
         @Column(name="content")
         private String content;
     
+        @Column(name="tags")
         private String tags;
     
+        @Column(name="published")
         private Boolean published;
 
+        /**
+         * Default constructor
+         */
         public Post() {
         }
 
+        /**
+         * @return the Id of a post, as a Long object.
+         */
         public Long getId() {
             return this.id;
         }
     
+        /**
+         * Sets the id of a post
+         * @param id the Id of the post to set 
+         */
         public void setId(Long id) {
             this.id = id;
         }
@@ -73,7 +86,7 @@ public class Post {
         public Boolean isPublished() {
             return this.published;
         }
-    
+   
         public Boolean getPublished() {
             return this.published;
         }
@@ -81,5 +94,5 @@ public class Post {
         public void setPublished(Boolean published) {
             this.published = published;
         }
-}
-   
+
+ }
