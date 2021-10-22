@@ -19,6 +19,7 @@ public interface PostService {
 
     public Post findByTitle(String title);
 
+    public void publishUnpublish(Long id, Post post);
         
 	}
 

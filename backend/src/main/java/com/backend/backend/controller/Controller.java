@@ -98,7 +98,7 @@ public class Controller {
   @CrossOrigin(origins = "http://localhost:4200")
   @ResponseStatus(code=HttpStatus.OK)
   public void publishUnpublish(@PathVariable("id")Long id, @RequestBody Post post){
-    postService.update(post);
+    postService.publishUnpublish(id, post);
   }
 }
 
