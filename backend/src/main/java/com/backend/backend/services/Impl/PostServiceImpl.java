@@ -24,25 +24,42 @@ public class PostServiceImpl implements PostService {
         return liste;
     }
 
+   /**
+     * Delete one post
+     *
+     */
     @Override
     public void delete(Long id) {
-        
-        
+
+        //TODO remove.production
+        System.out.println("Delete one post : " + id);
+        PostRepository.deleteById(id);
+
     }
 
     @Override
     public Post update(Long id, Post post) {
-        
-        return null;
+
+        //TODO remove.production
+        System.out.println("update one post : " + post);
+        post.setId(id);
+        return PostRepository.save(post);
+
     }
 
+ /**
+     * Update one post
+     *
+     */
     @Override
 
     public Long createNewPost(Post post) {
+
         
         System.out.println(" la méthode createNewPost est passée"); 
         // TO DO remove after test
         return PostRepository.save(post).getId();
+
     }
 
      /**
@@ -53,13 +70,14 @@ public class PostServiceImpl implements PostService {
      */
     @Override
     public Post findByTitle(String title) {
+        //TODO remove.production
         System.out.println("Find one post : " + title);
         return PostRepository.findByTitle(title);
     }
 
     @Override
     public Post publishUnpublish(Long id, Post post) {
-        
+
         return null;
     }
 
