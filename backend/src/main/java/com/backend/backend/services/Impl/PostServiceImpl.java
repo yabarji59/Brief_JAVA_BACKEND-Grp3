@@ -29,7 +29,7 @@ public class PostServiceImpl implements PostService {
      * Delete one post
      *
      * @param id the Id of the post that we want to delete
-     * @return the post
+     * 
      */
     @Override
     public void delete(Long id) {
@@ -42,16 +42,16 @@ public class PostServiceImpl implements PostService {
     /**
      * Update one post
      * 
-     * @param update of the post
-     * @return the post
+     * @param the post that we want to update
+     * @return the updated post or Invalid object exception
      */
     @Override
-    public void update(Post post) {
+    public Post update(Post post) {
 
         // TODO remove.production
         System.out.println("update one post : " + post.getTitle());
         if (validateForm(post)) {
-            postRepository.save(post);
+           return postRepository.save(post);
         }
         throw new InsertionException("invalide object");
 
