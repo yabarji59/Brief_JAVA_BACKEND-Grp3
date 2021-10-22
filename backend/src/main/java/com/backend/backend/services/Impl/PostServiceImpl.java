@@ -26,22 +26,23 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void delete(Long id) {
-        // TODO Auto-generated method stub
+        
         
     }
 
     @Override
     public Post update(Long id, Post post) {
-        // TODO Auto-generated method stub
+        
         return null;
     }
 
     @Override
 
     public Long createNewPost(Post post) {
-        // TODO Auto-generated method stub
-
-        return null;
+        
+        System.out.println(" la méthode createNewPost est passée"); 
+        // TO DO remove after test
+        return PostRepository.save(post).getId();
     }
 
      /**
@@ -58,7 +59,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Post publishUnpublish(Long id, Post post) {
-        // TODO Auto-generated method stub
+        
         return null;
     }
 
